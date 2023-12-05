@@ -1,0 +1,102 @@
+Am folosit 2 fisiere de tip header ("Utils.h" si "Struct.h") in care am
+implementat functiile, respectiv structurile si alte constante necesare
+rezolvarii problemei.
+
+"Struct.h" :
+- declararea fisierelor de citire si scriere;
+- definirea constantelor "const" de valoare 101, "const2" de valoare 21
+si "const3" de valoare 100, ce au rorlul de a usura manipularea si intelegerea
+codului;
+- definirea structurii pentru masinile din parcul auto, care are mai multe
+campuri ce ajuta la definirea completa a autovehiculelor : campul de tip char
+pointer in care retinem brand-ul, numarul de inmatriculare, tipul de
+combustibil folosit, consumul retinut intr-o variabila de tip double si numarul
+de kilometrii, respectiv anul in care a fost fabricata masina in variabile de
+tip int.
+
+"Utils.h" (oferă mai multe funcții pentru manipularea unei colecții de date
+despre mașini stocate într-o structură numită "masini").
+- "tip" - Această funcție calculează numărul de mașini din fiecare tip în
+funcție de combustibil. Prin intermediul argumentelor de tip pointer, aceasta
+intoarce rezultatele prin variabilele nr_benzina, nr_motorina, nr_hibrid și
+nr_electric. Funcția parcurge fiecare mașină din vectorul de mașini și, în
+funcție de tipul mașinii, incrementează variabila corespunzătoare.
+- "consum" - Această funcție calculează numărul total de litri consumați de
+fiecare tip (brand) de mașina. Prin intermediul argumentelor de tip pointer,
+aceasta intoarce rezultatele prin vectorul nr_litri și vectorul gasit. Funcția
+marchează mașinile pentru care consumul a fost calculat, in vectorul "gas". Se
+calculeaza consumul pentru prima masina de un anumit tip și apoi se parcurg
+restul masinilor, si se dauga la suma comsumul pentru cele ce au acelasi tip ca
+prrima masina pentru care am calcuat. Cand toate masinile de un anumit tip au
+fost marcate ca si gasite, se ia prima masina din urmatorul tip, care va avea
+valoarea 0 in vectorul gas (nu a fost inca gasita), si se procedeaza analog
+pentru a calcula consumul pentru toate mașinile din fiecare brand.
+- "numar" - Această funcție verifică dacă numărul de înmatriculare al unei
+mașini este valid. Prin intermediul argumentului de tip pointer, aceasta
+intoarce rezultatele prin vectorul valid. Funcția calculează numărul de litere
+de la începutul numărului, numărul de cifre din număr și numărul de litere de
+la finalul numărului și verifică dacă numărul de caractere respectă anumite
+condiții, caz in care numarul este valid, altfel este invalid.
+- "pret_an" - Această funcție returnează o constantă care modifică prețul în
+funcție de anul fabricației mașinii. Funcția primește ca argument anul
+fabricației și returnează constanta corespunzătoare.
+- "pret_km" - Această funcție returnează o constantă care modifică prețul în
+funcție de numărul de kilometri parcurși de mașină. Funcția primește ca
+argument numărul de kilometri și returnează constanta corespunzătoare.
+- "pret_brand" - Această funcție returnează o constantă care modifică prețul în
+funcție de brandul mașinii. Funcția primește ca argument un șir de caractere
+care reprezintă brandul și returnează constanta corespunzătoare.
+- "pret_estimativ" - Această funcție calculează un preț estimativ pentru
+fiecare mașină în funcție de brand, anul fabricației, consumul și numărul de
+kilometri. Funcția parcurge fiecare mașină din vectorul de mașini, aplică
+formulele corespunzătoare pentru calculul prețului estimativ și afișează
+rezultatul în fisierul de iesire.
+
+In functia "main" declaram variabilele necesare, alocam dinamic memorie unui
+vector ce retine n masini cu campurile din strucutra, si citim pe rand fiecare
+camp, in cazul sirurilor de carcatere alocand dinamic spatiu aferent lungimii
+sirului ce urmeaza a fi retinut. Citim operatia si in functie de aceasta apelam
+functia necesara. La final eliberam memoria alocata dinamic.
+
+La concretizarea ideii si la implementarea problemei au participat ambii membri
+ai echipei. Sarcinile individuale : realizarea prezentarii si incarcarea temeri
+pe GitHub - Dinu Florin, realizarea documentatiei (README-ul) si comentarea
+codului - Tanase Ramona.
+
+Concepte din curs acoperite in rezolvarea problemei:
+-fisiere header - in cadrul rezolvarii avem 2 astfel de fisiere ("Struct.h"
+si "Utils.h"), pentru a imparti codul, astfel incat sa usuram citirea si
+intelegerea sa
+- directive #define - folosite in cadrul header-ului "Struct.h" pentru a usura
+atat intelegerea, cat si o posibila modificare a dimensiunii datelor de intrare
+- crearea unui Makefile - pentru rularea si compilarea problemei, care contine
+comenzi de build, run si clean
+- depanarea si tratarea erorilor folosind valgrind si gdb - pentru a ne asigura
+ca memoria a fost alocata si dezalocata corect, astfel prevenind aparitia
+erorilor in ceea ce priveste accesarea si folosirea memoriei
+- utilizarea de pointeri si alocare dinamica de memorie pentru un cod mai
+eficient
+- utilizarea git si GitHub
+
+Dificultati:
+- alegerea unei teme cu aplicabilitate in viata cotidiana
+- mici dificultati in folosirea si intelegera comenzii de valgrind, precum si
+in dezalocarea corecta a memoriei alocate dinamic de-a lungul codului
+
+Notiunile prezentate in cadrul cursurilor si laboratoarelor care ne-au ajutat:
+- utilizarea corecta a memoriei
+- manipularea datelor
+- intelegerea functionalizatii pentru a facilita implementarea
+
+Exemple de utilizări ale proiectului :
+-in cadrul unui parc auto se poate implementa acest algorim pentu a crea o
+baza de date care sa tina evidenta masinilor detinute de parc
+
+exemplu de set de date de intrare:
+5
+Dacia PT43MDL hibrid 5.51 241549 2023
+Mercedes LL7PZY5Y hibrid 10.07 355947 2019
+Mercedes RI3441BH motorina 8.53 469511 1999
+Skoda LKUM2WE hibrid 8.83 108423 2005
+Tesla T7U890 benzina 5.89 39319 2014
+d
